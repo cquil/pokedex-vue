@@ -34,3 +34,7 @@ npm run build
 https://qiita.com/homusuke/items/8bbf96c750e9a6fcb2d2
 
 
+### vercel.app
+
+https://pokedex-vue-vert.vercel.app/
+

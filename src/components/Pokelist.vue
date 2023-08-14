@@ -1,7 +1,6 @@
 <template>
   <div class="wrapper">
     <ul class="c-poke-list">
-      <!-- <PokeItem v-for="pokemon in pokemons" :key="pokemon.name" :pokemon="pokemon" /> -->
       <PokeItem v-for="pokemon in filteredPokemons" :key="pokemon.name" :pokemon="pokemon" />
     </ul>
   </div>
