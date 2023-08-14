@@ -9,7 +9,7 @@
 
 <script>
 import axios from "axios";
-import PokeItem from "@/components/PokeItem.vue";
+import PokeItem from "@/components/Pokeitem.vue";
 
 export default {
   components: {

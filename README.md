@@ -34,10 +34,3 @@ npm run build
 https://qiita.com/homusuke/items/8bbf96c750e9a6fcb2d2
 
 
-echo "# pokedex-vue" >> README.md
-git init
-git add -A
-git commit -m "first commit"
-git branch -M master
-git remote add origin https://github.com/cquil/pokedex-vue.git
-git push -u origin master# pokedex-vue
