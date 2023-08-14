@@ -1,5 +1,6 @@
 <template>
   <div class="c-search">
+    <p>なまえ検索</p>
     <input v-model="searchTerm" @input="onInput" placeholder="ポケモン名を入力...">
   </div>
 </template>
@@ -21,6 +22,19 @@ export default {
 
 <style>
 .c-search {
-  padding-bottom: 40px;
+  padding:0 20px 40px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.c-search p{
+  color: white;
+  font-style: 15px;
+  margin-right: 10px;
+}
+
+.c-search input{
+  height: 30px;
 }
 </style>

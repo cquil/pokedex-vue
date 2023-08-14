@@ -93,4 +93,21 @@ export default {
   color: white;
   border-color: #f25c5c;
 }
+
+@media screen and (max-width: 950px) {
+  .pokemon-item {
+    width: calc(100% / 3);
+    margin-top: 20px;
+    padding: 0 10px;
+  }
+  .pokemon-item:nth-child(-n + 6) {
+    margin-top: 10px;
+  }
+  .pokemon-item:nth-child(-n + 3) {
+    margin: 0;
+  }
+  .pokemon-item button {
+    font-size: 10px;
+  }
+}
 </style>
