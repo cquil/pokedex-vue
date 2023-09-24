@@ -3,7 +3,8 @@
 
     <div v-if="favorites.length">
       <ul class="c-poke-list">
-        <PokeItem v-for="pokemon in favorites" :pokemon="pokemon" :is-favorite-page="true" />
+        <!-- <PokeItem v-for="pokemon in favorites" :pokemon="pokemon" :is-favorite-page="true" /> -->
+        <PokeItem v-for="pokemon in favorites" :key="pokemon.id" :pokemon="pokemon" :is-favorite-page="true" />
       </ul>
     </div>
 
@@ -23,11 +24,7 @@ export default {
     PokeItem
   },
   computed: mapState(['favorites']),
-  methods: {
-    removeFromFavorites(pokemon) {
-      this.$store.commit('toggleFavorite', pokemon);
-    }
-  }
+
 };
 </script>
 

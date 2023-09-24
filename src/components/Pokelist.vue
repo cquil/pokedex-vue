@@ -72,7 +72,7 @@ export default {
       }
 
       const countResponse = await axios.get("https://pokeapi.co/api/v2/pokemon");
-      const totalCount = 1010;
+      const totalCount = 1050;
       console.log(totalCount)
       const response = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=${totalCount}`);
       const promises = response.data.results.map(async (poke, index) => {

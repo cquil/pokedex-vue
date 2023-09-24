@@ -1,11 +1,11 @@
-// store.js
 import { createStore } from 'vuex';
 
 const store = createStore({
   state: {
     pokemons: [],
     currentRegion: '',
-    favorites: []
+    // Initialize favorites from sessionStorage
+    favorites: JSON.parse(sessionStorage.getItem('favorites') || '[]')
   },
   mutations: {
     toggleFavorite(state, pokemon) {
@@ -15,9 +15,17 @@ const store = createStore({
       } else {
         state.favorites.splice(index, 1);
       }
+      // Update the sessionStorage when favorites changes
+      sessionStorage.setItem('favorites', JSON.stringify(state.favorites));
     },
     setCurrentRegion(state, region) {
       state.currentRegion = region;
+    },
+    // New mutation to set the favorites
+    setFavorites(state, favorites) {
+      state.favorites = favorites;
+      // Update the sessionStorage as well
+      sessionStorage.setItem('favorites', JSON.stringify(favorites));
     },
   },
   actions: {

@@ -25,23 +25,45 @@ export default {
       default: false
     }
   },
+  data() {
+    return {
+      isFavorited: this.checkIfFavorited()
+    }
+  },
   computed: {
-    isFavorited() {
-      return this.$store.state.favorites.some(fav => fav.name === this.pokemon.name);
-    },
     favoriteButtonText() {
     if (this.isFavoritePage) {
       return 'お気に入りからはずす';
     }
     return this.isFavorited ? 'お気に入り' : 'お気に入りに<br>追加する';
-  }
+    },
   },
   methods: {
     toggleFavorite() {
-      this.$store.commit('toggleFavorite', this.pokemon);
+      const favorites = JSON.parse(sessionStorage.getItem('favorites') || '[]');
+      if (this.isFavorited) {
+        const index = favorites.findIndex(fav => fav.name === this.pokemon.name);
+        if (index !== -1) {
+          favorites.splice(index, 1);
+        }
+      } else {
+        favorites.push(this.pokemon);
+      }
+      sessionStorage.setItem('favorites', JSON.stringify(favorites));
+
+      // Also update the Vuex store
+      this.$store.commit('setFavorites', favorites);
+      this.isFavorited = this.checkIfFavorited();
+    },
+
+    checkIfFavorited() {
+      const favorites = JSON.parse(sessionStorage.getItem('favorites') || '[]');
+      return favorites.some(fav => fav.name === this.pokemon.name);
     }
+
   },
-};
+
+}
 </script>
 
 
